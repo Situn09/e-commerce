@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-// @ts-expect-error
-import Input from "postcss/lib/input";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function OTP() {
