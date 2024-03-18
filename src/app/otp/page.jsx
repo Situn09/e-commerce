@@ -9,20 +9,20 @@ export default function OTP() {
   console.log(inputRefs);
   useEffect(() => {
     if (inputRefs.current[0]) {
-      // @ts-expect-error : Should any typ
-      inputRefs.current[0]?.focus();
+      // 
+      inputRefs.current[0].focus();
     }
   }, []);
-  // @ts-expect-error : Should any typ
+  // 
   const submitHandler = (otp) => {
     console.log(otp);
   };
 const handleFocus=(/** @type {number} */ index,/** @type {React.FocusEvent<HTMLInputElement, Element>} */ e)=>{
-// @ts-expect-error : Should any typ
+// 
 inputRefs.current[index].setSelectionRange(0,e.target.value.length)
 }
 
-  // @ts-expect-error : Should any typ
+  // 
   const handleChange = (index, e) => {
     const value = e.target.value;
     if (isNaN(value)) return;
@@ -36,24 +36,24 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
     if (combineOtp.length === 8) submitHandler(combineOtp);
     // move to next field after fill
     if (value && index < 8 && inputRefs.current[index + 1] ) {
-        // @ts-expect-error : Should any typ
+        // 
         inputRefs.current[index + 1].focus();
     }
     
   };
-  // @ts-expect-error : Should any typ
+  // 
   const handleclick = (index,e) => {
-    // @ts-expect-error : Should any typ
+    // 
     inputRefs.current[index].setSelectionRange(0, e.target.value.length);
 
     // optional
     if (index > 0 && !otp[index - 1]) {
-      // @ts-expect-error : Should any typ
+      // 
       inputRefs.current[otp.indexOf("")].focus();
     }
   };
 
-  // @ts-expect-error : Should any typ
+  // 
   const keyDownHandler = (index, e) => {
     if (
         e.key === "Backspace" &&
@@ -62,7 +62,7 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
         inputRefs.current[index - 1]
       ) {
         // Move focus to the previous input field on backspace
-        // @ts-expect-error : Should any typ
+        // 
         inputRefs.current[index - 1].focus();
       }
   };
@@ -87,7 +87,7 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
               .fill(0)
               .map((_, index) => (
                 <input
-                  // @ts-expect-error : Should any typ
+                  // 
                   ref={(input) => (inputRefs.current[index] = input)}
                   key={index}
                   type="text"
