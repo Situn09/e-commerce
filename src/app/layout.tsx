@@ -1,8 +1,9 @@
 import "~/styles/globals.css";
-
 import { Inter } from "next/font/google";
-
 import { TRPCReactProvider } from "~/trpc/react";
+import Image from "next/image";
+import discountImg from "public/images/DiscountBanner.png"
+import headerImg from "public/images/TopHeader.png"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,8 +25,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
       <header>
-        <img src="/images/TopHeader.png" alt="headerImg" width={"100%"} />
-        <img src="/images/DiscountBanner.png" alt="headerImg" width={"100%"} />
+        <Image src={headerImg} alt="headerImg" style={{width:"100%"}}/>
+        <Image src={discountImg} alt="headerImg" style={{width:"100%"}} />
 
       </header>
         <TRPCReactProvider>{children}</TRPCReactProvider>
