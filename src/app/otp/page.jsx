@@ -1,6 +1,7 @@
 "use client";
 /* eslint no-use-before-define: 0 */
 import Link from "next/link";
+import { type } from "os";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function OTP() {
@@ -8,10 +9,15 @@ export default function OTP() {
   const swa = "chi";
   const inputRefs = useRef([]);
   console.log(inputRefs);
+
   useEffect(() => {
     if (inputRefs.current[0]) {
-      // 
-      inputRefs.current[0].focus();
+      try{
+
+        inputRefs.current[0].focus() ;
+      }catch (err){
+        console.error(err)
+      }
     }
   }, []);
   // 
