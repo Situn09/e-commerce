@@ -1,7 +1,6 @@
 "use client";
 /* eslint no-use-before-define: 0 */
 import Link from "next/link";
-import { type } from "os";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function OTP() {
@@ -12,31 +11,31 @@ export default function OTP() {
 
   useEffect(() => {
     if (inputRefs.current[0]) {
-      try{
 
-        inputRefs.current[0].focus() ;
-      }catch (err){
-        console.error(err)
+        // @ts-expect-error : Should object type
+        inputRefs.current[0].focus() ;    
       }
-    }
   }, []);
   // 
+  // @ts-expect-error : Should object type
   const submitHandler = (otp) => {
     console.log(otp);
   };
 const handleFocus=(/** @type {number} */ index,/** @type {React.FocusEvent<HTMLInputElement, Element>} */ e)=>{
 // 
+// @ts-expect-error : Should object type
 inputRefs.current[index].setSelectionRange(0,e.target.value.length)
 }
 
   // 
+  // @ts-expect-error : Should object type
   const handleChange = (index, e) => {
     const value = e.target.value;
     if (isNaN(value)) return;
 
     const newOtp = [...otp];
     // allow only on input
-    newOtp[index] = value.substring(value.length - 1);
+    newOtp[index] = value.substring(value.length - 1)
     setOtp(newOtp);
     console.log(newOtp);
     const combineOtp = newOtp.join("");
@@ -44,23 +43,28 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
     // move to next field after fill
     if (value && index < 8 && inputRefs.current[index + 1] ) {
         // 
+        // @ts-expect-error : Should object type
         inputRefs.current[index + 1].focus();
     }
     
   };
   // 
+  // @ts-expect-error : Should object type
   const handleclick = (index,e) => {
     // 
+    // @ts-expect-error : Should object type
     inputRefs.current[index].setSelectionRange(0, e.target.value.length);
 
     // optional
     if (index > 0 && !otp[index - 1]) {
       // 
+      // @ts-expect-error : Should object type
       inputRefs.current[otp.indexOf("")].focus();
     }
   };
 
   // 
+  // @ts-expect-error : Should object type
   const keyDownHandler = (index, e) => {
     if (
         e.key === "Backspace" &&
@@ -70,6 +74,7 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
       ) {
         // Move focus to the previous input field on backspace
         // 
+        // @ts-expect-error : Should object type
         inputRefs.current[index - 1].focus();
       }
   };
@@ -95,6 +100,7 @@ inputRefs.current[index].setSelectionRange(0,e.target.value.length)
               .map((_, index) => (
                 <input
                   // 
+                  // @ts-expect-error : Should object type
                   ref={(input) => (inputRefs.current[index] = input)}
                   key={index}
                   type="text"
