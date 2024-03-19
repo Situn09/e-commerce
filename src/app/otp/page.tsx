@@ -1,5 +1,4 @@
 "use client";
-/* eslint no-use-before-define: 0 */
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { string } from "zod";
