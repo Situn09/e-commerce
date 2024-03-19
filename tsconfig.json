@@ -37,6 +37,6 @@
     "**/*.cjs",
     "**/*.js",
     ".next/types/**/*.ts"
-, "src/app/otp/page.jsx"  ],
+, "src/app/otp/page.tsx"  ],
   "exclude": ["node_modules"]
 }
