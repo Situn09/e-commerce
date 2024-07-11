@@ -1,3 +1,15 @@
+# To Run application locally 
+- First run below command for install node modiluls
+'''
+  npm install
+'''
+- After this run below command to lunch the website
+'''
+ npm run dev
+'''
+- now in your termial, you can found website link go to the link where you test the features 
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
